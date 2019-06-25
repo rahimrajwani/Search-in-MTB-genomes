@@ -1,0 +1,13 @@
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/735/855/GCA_000735855.1_ASM73585v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/735/875/GCA_000735875.1_ASM73587v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/735/895/GCA_000735895.1_ASM73589v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/735/915/GCA_000735915.1_ASM73591v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/735/935/GCA_000735935.1_ASM73593v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/735/955/GCA_000735955.1_ASM73595v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/736/055/GCA_000736055.1_ASM73605v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/736/075/GCA_000736075.1_ASM73607v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/736/095/GCA_000736095.1_ASM73609v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/736/135/GCA_000736135.1_ASM73613v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/736/155/GCA_000736155.1_ASM73615v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/736/175/GCA_000736175.1_ASM73617v1/*[0-9]_genomic.fna.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/736/215/GCA_000736215.1_ASM73621v1/*[0-9]_genomic.fna.gz
