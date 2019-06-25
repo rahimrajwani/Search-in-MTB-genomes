@@ -1,0 +1,35 @@
+#!/bin/bash
+	##THE MAIN SNPFIND FUNCTION
+	##Initialization of parameters
+	##dir_to_search="dir/*"
+	Position_of_interest=$1
+	Nucleotide_of_interest=$2
+	Session_id=$3
+	Reference_file=reference_withoutspace       ## This should contain plain sequence not in FASTA format
+	
+	Probe_length=20
+	
+	##echo "$Position_of_interest $Nucleotide_of_interest"
+	
+	
+	##GENERATING PROBES
+		## THERE WOULD BE TWO PROBES WITH THE POSITION_OF_INTEREST IN THE CENTRE.
+		Probe1_start_pos=$((Position_of_interest - Probe_length))
+		Probe2_start_pos=$((Position_of_interest + Probe_length))
+		## EXTRACTING ORIGNAL_PROBE_SEQUENCES
+		Probe1_orignal_sequence=$(cut -c $Probe1_start_pos-$Position_of_interest $Reference_file) 			## from start-position to position-of-interest (probe1)
+		Probe2_orignal_sequence=$(cut -c $Position_of_interest-$Probe2_start_pos $Reference_file)			## from position-of-interest to start-position (probe2)
+		## GENERATING MUTATED SEQUENCES
+		Probe1_mutated_sequence=$(echo $Probe1_orignal_sequence | sed "s/.$/$Nucleotide_of_interest/")		## Replace last nucleotide (probe1)
+		Probe2_mutated_sequence=$(echo $Probe2_orignal_sequence | sed "s/^\s*./$Nucleotide_of_interest/")	## Replace first nucleotide (probe2)
+		## GENERATING REVERSE COMPLEMENT SEQUENCES
+		Probe1_reverse_complement=$(echo $Probe1_mutated_sequence| grep '^[ATCG]' | rev | tr ATCG TAGC)
+		Probe2_reverse_complement=$(echo $Probe2_mutated_sequence| grep '^[ATCG]' | rev | tr ATCG TAGC)
+	
+	##The main grep command
+	##echo "$Position_of_interest: $Probe1_orignal_sequence : $Probe1_mutated_sequence : $Probe2_mutated_sequence : $Probe1_reverse_complement : $Probe2_reverse_complement"
+	##grep -l -e "$Probe1_mutated_sequence" -e "$Probe2_mutated_sequence" -e "$Probe1_reverse_complement" -e "$Probe2_reverse_complement" dir/* > Results_for_comparision_V2/Drug_resistance/MTBDRsl_v2/Searchinmtbgenomes_output/"$Position_of_interest$Nucleotide_of_interest"
+	grep -l -e "$Probe1_mutated_sequence" -e "$Probe2_mutated_sequence" -e "$Probe1_reverse_complement" -e "$Probe2_reverse_complement" Database/dir/* > tmp/"$Session_id".txt
+	
+	##ANNOTATING THE LIST WITH NCBI METADATA
+	grep -oP 'GCA_[0-9]+' tmp/"$Session_id".txt | grep -f - Database/biosample_summary.txt | awk '{print $1,$2,$3,$4,$5,$6,$7,$8}' OFS='\t' FS='\t' > tmp/"$Session_id".annotated.txt
